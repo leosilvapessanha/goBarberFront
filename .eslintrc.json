@@ -23,7 +23,7 @@
     "prettier"
   ],
   "rules": {
-    "react/jsx-props-no-spreading": "off",
+    "react/jsx-attributes-must-only-be-assigned-a-non-empty-'expression'": "off",
     "react/prop-types": "off",
     "prettier/prettier": "error",
     "import/extensions": [
