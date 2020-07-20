@@ -11,9 +11,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
 
-  const InputRef = useRef<HTMLInputElement>(null);
   // eslint-disable-next-line
   const { error, defaultValue, fieldName, registerField } = useField(name);
+
+  const InputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
