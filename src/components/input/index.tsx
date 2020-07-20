@@ -13,17 +13,17 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
 
   const InputRef = useRef<HTMLInputElement>(null);
   // eslint-disable-next-line
-  const { error, defaultValue, fieldName, registerField } = useField(name)
+  const { error, defaultValue, fieldName, registerField } = useField(name);
 
   const [isFocused, setIsFocused] = useState(false);
-  const [isField, setIsField] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
 
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
 
-    setIsField(!!InputRef.current?.value);
+    setIsFilled(!!InputRef.current?.value);
 
-  }, [])
+  }, []);
 
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
     })
   }, [fieldName, registerField]);
 
-  return (<Container isFilled={isField} isFocused={isFocused}>
+  return (<Container isFilled={isFilled} isFocused={isFocused}>
     {Icon && <Icon size={20} />}
     <input
       onFocus={() => setIsFocused(true)}
